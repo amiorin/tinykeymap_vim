@@ -166,7 +166,7 @@ g:tinykeymap#autokey_msecs     (default: 5000)
     a key press every N milliseconds.
 
                                                     *g:tinykeymap#message_fmt*
-g:tinykeymap#message_fmt       (default: "-- %s (help <F1>)%s --")
+g:tinykeymap#message_fmt       (default: "-- %s (help ?)%s --")
     The format string (see |printf()|) for the tinykeymap message. This 
     format string must contain 2 %s: The first one is for the map's 
     name, the second one for the counter.
@@ -228,7 +228,7 @@ tinykeymap#Map(name, map, expr, ?options={})
     [map] can be a string or a list of characters. It [map] is a string, 
     tinykeymap tries to figure out which keys you meant. If it goes wrong, 
     use a list as the value of [map]. [map] must not be <Esc>, <Del> or 
-    <F1>. If [map] is a numeric value, such a map could cause conflicts 
+    ?. If [map] is a numeric value, such a map could cause conflicts 
     when using a [count].
 
     The following keys are handled by tinykeymaps and can/should not be 
@@ -237,7 +237,7 @@ tinykeymap#Map(name, map, expr, ?options={})
       Numeric value ... Add to [count]
       <Esc> ... Exit a tinykeymap
       <Del> ... Remove the last digit from [count]
-      <F1>  ... Display some help
+      ?     ... Display some help
 
     Any occurence of "<count>" in [expr] is replaced with the current 
     [count]. Occurences of "<lt>" are replaced with "<".

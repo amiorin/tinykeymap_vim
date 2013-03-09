@@ -48,7 +48,7 @@ if !exists('g:tinykeymap#message_fmt')
     " The format string (see |printf()|) for the tinykeymap message. This 
     " format string must contain 2 %s: The first one is for the map's 
     " name, the second one for the counter.
-    let g:tinykeymap#message_fmt = "-- %s (help <F1>)%s --"   "{{{2
+    let g:tinykeymap#message_fmt = "-- %s (help ?)%s --"   "{{{2
 endif
 
 
@@ -207,7 +207,7 @@ endf
 " [map] can be a string or a list of characters. It [map] is a string, 
 " tinykeymap tries to figure out which keys you meant. If it goes wrong, 
 " use a list as the value of [map]. [map] must not be <Esc>, <Del> or 
-" <F1>. If [map] is a numeric value, such a map could cause conflicts 
+" ?. If [map] is a numeric value, such a map could cause conflicts 
 " when using a [count].
 "
 " The following keys are handled by tinykeymaps and can/should not be 
@@ -216,7 +216,7 @@ endf
 "   Numeric value ... Add to [count]
 "   <Esc> ... Exit a tinykeymap
 "   <Del> ... Remove the last digit from [count]
-"   <F1>  ... Display some help
+"   ?     ... Display some help
 "
 " Any occurence of "<count>" in [expr] is replaced with the current 
 " [count]. Occurences of "<lt>" are replaced with "<".
@@ -414,8 +414,8 @@ function! tinykeymap#Call(name) "{{{3
             elseif type(key) == 0 && key == 27
                 " TLogVAR "<esc>"
                 break
-            elseif type(key) == 1 && key ==# "\<F1>"
-                " TLogVAR "<f1>"
+            elseif type(key) == 0 && key ==# 63
+                " TLogVAR "?"
                 call s:Help(dict)
             elseif type(key) == 1 && key ==# "\<Del>"
                 " TLogVAR "<del>"
